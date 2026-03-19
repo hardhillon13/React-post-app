@@ -22,7 +22,10 @@ function PostsList({isPosting, onStopPosting}){
         <>
         {isPosting ?
         <Modal onClose={onStopPosting}>
-        <NewPost onNameChange ={changeNameHandler} onDescriptionChange={changeDescriptionHandler}/> 
+        <NewPost 
+        onNameChange ={changeNameHandler} 
+        onDescriptionChange={changeDescriptionHandler}
+        onCancel={onStopPosting}/> 
         </Modal> : false}
             <ul className={classes.posts}>
                 <Post garden={enteredName} description={enteredDescription} />
