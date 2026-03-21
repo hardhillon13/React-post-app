@@ -13,16 +13,25 @@ function PostsList({isPosting, onStopPosting}){
 
     return (
         <>
-        {isPosting ?
+        {isPosting && (
         <Modal onClose={onStopPosting}>
         <NewPost 
         onCancel={onStopPosting}
         onAddPost={addPostHandler}/> 
-        </Modal> : false}
+        </Modal>
+        )}
+        {posts.length > 0 && (
             <ul className={classes.posts}>
-                <Post garden="kildonan park" description="wonderful place to walk in greenery" />
+                {posts.map((post) => <Post key={post.garden} garden={post.garden} description={post.description}/>)}
             </ul>
-            </>
+        )}
+        {posts.length === 0 && (
+            <div style={{ textAlign: 'center', color: 'white'}}>
+                <h2>There are no reviews to be found yet!</h2>
+                <p>Be the first to add!</p>
+            </div>
+        )}
+        </>
     );
 }
 

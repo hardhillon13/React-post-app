@@ -15,7 +15,7 @@ function NewPost({onCancel, onAddPost}) {
    function submitHandler(event){
     event.preventDefault();
     const postData = {
-      name: enteredName,
+      garden: enteredName,
       description: enteredDescription
     };
     onAddPost(postData);
